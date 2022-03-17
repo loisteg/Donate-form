@@ -42,7 +42,13 @@ const Form = () => {
                     .email('Некорректный email адрес!'),
             amount: Yup .number()
                     .required('Обязательное поле!')
-                    .min(2, 'Не менее 2') 
+                    .min(2, 'Не менее 2'),
+            currency: Yup.string().required('Выберите валюту!'),
+            text: Yup.string()
+                    .min(10, 'Не менее 10 символов!'),
+            terms: Yup.boolean()
+                    .required('Необходимо согласие!')
+                    .oneOf([true], 'Необходимо согласие!')
         }),
         onSubmit: values => console.log(JSON.stringify(values, null, 2))
     })
