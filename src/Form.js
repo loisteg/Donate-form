@@ -39,7 +39,10 @@ const Form = () => {
                     .max(30, 'Многовато...'),
             email: Yup.string()
                     .required('Обязательное поле!')
-                    .email('Некорректный email адрес!'),    
+                    .email('Некорректный email адрес!'),
+            amount: Yup .number()
+                    .required('Обязательное поле!')
+                    .min(2, 'Не менее 2') 
         }),
         onSubmit: values => console.log(JSON.stringify(values, null, 2))
     })
